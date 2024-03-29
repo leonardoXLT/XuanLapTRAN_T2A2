@@ -22,8 +22,62 @@
 
 
 
-## Installation Instructions:
+## Installation Guide for LibraLink API:
 Step-by-step guide on how to install and run the application.
+
+The steps below assume you are running on a macOS or Linux-based operating system.
+
+1. **Clone the Repository**
+
+- Clone the LibraLink API repository from the provided GitHub link to your local machine.
+
+- Open the `src` folder in your terminal of choice.
+
+2. **Set up a Virtual Environment**
+
+- Run `python3 -m venv .venv` to create a new virtual environment.
+
+- Activate the virtual environment using source `.venv/bin/activate`.
+
+3. **Install Dependencies**
+
+- Run `pip3 install -r requirements.txt` to install the required Python packages and modules.
+
+4. **Set up the Database**
+
+- Create a new PostgreSQL database and user for the LibraLink API.
+
+- Create a `.env` file in the `src` folder based on the provided `.env.sample` file.
+
+- Update the `.env` file with your database URI and any other required environment variables, such as the `SECRET_KEY`.
+
+5. **Initialize the Database**
+
+- Run `flask db init` to initialize the database and create the required tables.
+
+- Run `flask db upgrade` to apply any pending database migrations.
+(Optional) Run `flask db seed` to populate the database with default seed data.
+
+6. **Start the API Server**
+
+- Run `flask run` to start the Flask server.
+
+- The API will be available at `http://localhost:8080`.
+
+7. **Import API Endpoints (Optional)**
+
+- Import the provided `Insomnia_Routes.json` file into the Insomnia API client.
+
+- This will give you a pre-configured set of all the available API endpoints.
+
+8. **Verify the Installation**
+
+- Test the API endpoints using Insomnia or your preferred API client.
+
+- Ensure that you can perform CRUD operations on the various entities (books, members, borrowing records, categories, and staff).
+
+By following these steps, you should have a fully functional LibraLink API server up and running on your local machine. Remember to update the .env file with the correct database credentials and any other required environment variables.
+
 
 
 ### R1 - Identification of the problem you are trying to solve by building this particular app.
@@ -77,19 +131,64 @@ However, the benefits of using PostgreSQL, such as its data integrity, scalabili
 
 ### R4 - Identify and discuss the key functionalities and benefits of an ORM
 
-Object-Relational Mapping (ORM) libraries, such as SQLAlchemy in the case of the LibraLink Library Management System, offer several key functionalities and benefits:
+### Key Functionalities of SQLAlchemy ORM
 
-- Abstraction: ORMs abstract the underlying database implementation, allowing developers to work with the database using an object-oriented approach rather than writing raw SQL queries. This abstraction simplifies data manipulation and enhances code readability.
-- Data Mapping: ORMs map database tables to Python classes, enabling developers to interact with database entities as objects in their code. This simplifies data access and manipulation by providing a more intuitive interface.
-- Query Optimization: ORMs can optimize database queries, reducing the need for manual query optimization. They can generate efficient SQL queries based on high-level object-oriented operations, improving performance.
-- Portability: ORMs provide a layer of abstraction that allows applications to be easily ported to different database systems without significant changes to the codebase. This portability enhances flexibility and reduces vendor lock-in.
-- Automatic Schema Management: ORMs handle database schema changes, such as adding or modifying tables, columns, and relationships. This simplifies database management tasks and ensures data consistency across schema changes.
-- Relationship Management: ORMs facilitate managing relationships between database entities, such as one-to-many, many-to-many, and one-to-one relationships. This simplifies complex data modeling and ensures data integrity.
-- Data Validation: ORMs can handle data validation at the model level, enforcing constraints and ensuring data integrity before interacting with the database. This reduces the risk of data corruption or inconsistency.
-- Lazy Loading: ORMs support lazy loading, where related data is loaded only when needed, reducing unnecessary database queries and improving performance by fetching data on-demand.
+1. **Database Abstraction**
 
-By leveraging these functionalities and benefits of an ORM like SQLAlchemy in the LibraLink project, developers can streamline database interactions, improve code maintainability, enhance performance, and simplify complex data modeling tasks.
+SQLAlchemy provides a high-level abstraction over the underlying database, allowing developers to interact with the database using Python objects and classes rather than writing raw SQL queries. This abstraction simplifies database interactions and makes the code more readable and maintainable.
 
+2. **Object-Relational Mapping (ORM)**
+
+SQLAlchemy's ORM layer maps Python classes to database tables, allowing developers to work with data in an object-oriented way. This includes features like automatic object persistence, lazy loading of related objects, and support for complex relationships between objects.
+
+3. **SQL Expression Language**
+
+SQLAlchemy's SQL Expression Language provides a Pythonic way to construct SQL queries, allowing developers to write complex queries using Python syntax rather than raw SQL. This makes the code more readable and maintainable.
+
+4. **Database Agnostic**
+
+SQLAlchemy supports a wide range of database engines, including SQLite, PostgreSQL, MySQL, Oracle, and more. This allows developers to write database-agnostic code that can be easily ported to different databases.
+
+5. **Database Schema Management**
+
+
+SQLAlchemy provides tools like Alembic for managing database schema changes, allowing developers to automatically synchronize the database schema with their application code.
+
+6. **Data Type Conversion**
+
+SQLAlchemy automatically handles the conversion between Python data types and database data types, simplifying the process of working with data in the application.
+
+7. **Caching and Lazy Loading**
+
+SQLAlchemy's ORM provides features like caching and lazy loading, which can improve the performance of database-heavy applications by reducing the number of database queries.
+
+### Key Benefits of SQLAlchemy ORM
+
+1. **Increased Productivity**
+
+By abstracting away the complexity of database interactions, SQLAlchemy allows developers to focus on writing business logic rather than dealing with low-level database concerns. This can significantly increase developer productivity.
+
+2. **Improved Code Maintainability**
+
+SQLAlchemy's object-oriented approach and database-agnostic design make the codebase more readable and easier to maintain, especially for large-scale applications.
+
+3. **Enhanced Performance**
+
+SQLAlchemy's advanced features, such as caching and lazy loading, can help improve the performance of database-heavy applications by reducing the number of database queries.
+
+4. **Reduced Risk of SQL Injection**
+
+SQLAlchemy's use of parameterized queries helps protect against SQL injection attacks, improving the overall security of the application.
+
+5. **Easier Database Schema Management**
+
+SQLAlchemy's schema management tools, like Alembic, make it easier to keep the database schema in sync with the application code, reducing the risk of errors and making it easier to deploy changes.
+
+6. **Increased Flexibility**
+
+SQLAlchemy's database-agnostic design and support for a wide range of database engines make it easier to switch between different databases or to support multiple databases within the same application.
+
+In summary, the key functionalities and benefits of SQLAlchemy ORM make it a powerful and versatile tool for building database-driven applications, particularly in the context of a Flask-based Library Management System using PostgreSQL.
 
 
 ### R5 - Document all endpoints for your API
@@ -114,6 +213,7 @@ The API will include endpoints such as:
 
 The ERD will illustrate the relationships between books, members, borrowing records, categories, and staff, showing how these entities interact within the library system.
 
+![ERD Diagram](./docs/LibraLink.jpg)
 
 ### R7 - Detail any third party services that your app will use
 
@@ -150,5 +250,29 @@ First I created a simple Software Development Plan (SDP), this was only for the 
 
 Day 1 - 25/03/2024
 
-Got Idea approved, ERD done
+- Got Idea approved, ERD done
 
+![T1](./docs/T1set.png)
+
+Day 2 - 26/03/2024
+
+- Created folder structure
+- Created Readme.md framework and documented the layout, draft and plan
+- Updated Trello and review process/procedure 
+
+![T1](./docs/T1setB.png)
+
+Day 3-4 - 27-28/03/2024
+
+- Continued to work on the README.MD, Software Development plan with more detailed step-by-step guide
+- Worked on Project Initialization/Setup, Installation Guide, and dependencies/Tech/app used: Flask, SQLAlchemy, Marshmallow, psycopg2, and other necessary libraries
+- Update Readme
+- Unfortunately due to workload for my daily job and the busy period of "End of Quarter - Interest Payment date", I was not able to dedicate sufficient time for this project.
+
+![T3-4](./docs/T3-4.png)
+![T3planA](./docs/T3planA.png)
+![T3planB](./docs/T3planB.png)
+
+Day 5 - 29/03/2024
+
+- Plan for final day is to achieve as much as possible while maintaining a high comprehensive understanding.
