@@ -4,7 +4,7 @@
 **LibraLink** is a comprehensive library management system designed to streamline the administration of library resources.
 
 
-[Github Link]() | [Trello Link]()
+[Github Link](https://github.com/leonardoXLT/XuanLapTRAN_T2A2) | [Trello Link](https://trello.com/invite/b/c0cX1wmL/ATTI7dbe117cfa943fa59950d2745748b239E340BCFE/libralink-library-management-system)
 
 ## Table of Contents:
 
