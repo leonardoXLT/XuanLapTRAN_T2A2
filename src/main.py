@@ -15,6 +15,8 @@ from models.staff import Staff
 # Import the controllers (blueprints)
 from controllers.auth_controller import auth_bp
 from controllers.book_controller import book_bp
+from controllers.borrowing_record_controller import borrowing_record_bp
+from controllers.category_controller import category_bp
 
 # Create the Flask application
 app = Flask(__name__)
@@ -46,6 +48,8 @@ def validation_error(error):
 # Register blueprints (controllers)
 app.register_blueprint(auth_bp)
 app.register_blueprint(book_bp)
+app.register_blueprint(borrowing_record_bp)
+app.register_blueprint(category_bp)
 
 # Define a route for the index
 @app.route('/')
@@ -59,3 +63,4 @@ if __name__ == '__main__':
         db.create_all()
     # Run the Flask application
     app.run(debug=True)
+
