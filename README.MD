@@ -405,3 +405,12 @@ Day 5 - 29/03/2024
 - Coding done for main.py, init.py and some for book.py and  book_controller.py
 
 ![T5A](./docs/T5A.png)
+
+Day 5 - continued
+- Due to time constrant, development process/procedure has been changed slightly to allow coding-->reviewing-->testing to be done at a much smaller scale.
+- Utilised the template of Trello project from course lecture and video to apply to this LibraLink Project
+- Updates on the progress so far: main.py done up to 2/6 controllers, all models' codes done on a high level (draft/template) with detailed comments for tracking/reviewing/testing
+
+screenshot for update of the progress
+
+![T5B](./docs/T5B.png)
