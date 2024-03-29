@@ -195,17 +195,49 @@ In summary, the key functionalities and benefits of SQLAlchemy ORM make it a pow
 
 The API will have endpoints for books, members, borrowing records, categories, and staff, each supporting GET, POST, PUT, and DELETE methods as appropriate for full CRUD functionality.
 
-The API will include endpoints such as:
+The LibraLink Library Management System exposes the following API endpoints:
 
-/books (GET, POST, PUT, DELETE)
+### Books
+- GET /books: Retrieve all books
+- GET /books/{book_id}: Retrieve a specific book
+- POST /books: Create a new book
+- PUT /books/{book_id}: Update a book
+- DELETE /books/{book_id}: Delete a book
 
-/members (GET, POST, PUT, DELETE)
+### Members
 
-/borrowing_records (GET, POST, PUT, DELETE)
+- GET /members: Retrieve all members
+- GET /members/{member_id}: Retrieve a specific member
+- POST /members: Create a new member
+- PUT /members/{member_id}: Update a member
+- DELETE /members/{member_id}: Delete a member
 
-/categories (GET, POST, PUT, DELETE)
+### Borrowing Records
 
-/staff (GET, POST, PUT, DELETE)
+- GET /borrowing-records: Retrieve all borrowing records
+- GET /borrowing-records/{record_id}: Retrieve a specific borrowing record
+- POST /borrowing-records: Create a new borrowing record
+- PUT /borrowing-records/{record_id}: Update a borrowing record
+- DELETE /borrowing-records/{record_id}: Delete a borrowing record
+
+### Categories
+
+- GET /categories: Retrieve all categories
+- GET /categories/{category_id}: Retrieve a specific category
+- POST /categories: Create a new category
+- PUT /categories/{category_id}: Update a category
+- DELETE /categories/{category_id}: Delete a category
+
+### Staff
+
+- GET /staff: Retrieve all staff members
+- GET /staff/{staff_id}: Retrieve a specific staff member
+- POST /staff: Create a new staff member
+- PUT /staff/{staff_id}: Update a staff member
+- DELETE /staff/{staff_id}: Delete a staff member
+
+These API endpoints provide essential functionality for managing books, members, borrowing records, categories, and staff within the LibraLink Library Management System.
+
 
 
 
@@ -254,17 +286,72 @@ The models in LibraLink reflect real-world library entities and their interactio
     Members engage in borrowing activities.
     Staff oversee borrowing records and manage book statuses.
 
+### Project's Models and Their Relationships
+
+1.	**books**
+
+- Attributes: book_id (PK), title, author, category_id (FK), shelf_location, status (available, borrowed)
+- Associations:
+    - Belongs to one category.
+    - Has many borrowing_records.
+
+2.	**members**
+
+- Attributes: member_id (PK), first_name, last_name, email, password
+- Associations:
+    - Has many borrowing_records.
+
+3.	**borrowing_records**
+
+- Attributes: record_id (PK), book_id (FK), member_id (FK), borrowed_on, return_date, fine_amount
+- Associations:
+    - Belongs to one book.
+    - Belongs to one member.
+    - Managed by multiple staff members.
+
+4.	**categories**
+
+- Attributes: category_id (PK), name, description
+- Associations:
+    - Has many books.
+
+5.	**staff**
+
+- Attributes: staff_id (PK), name, email, password
+- Associations:
+    - Manages many borrowing_records.
+    - Can update the status of books.
+
+### Associations:
+
+•	**books** to **categories**: Many-to-One (Many books can belong to one category).
+
+•	**books** to **borrowing_records**: One-to-Many (One book can have many borrowing records, but each borrowing record is associated with only one book).
+
+•	**members** to **borrowing_records**: One-to-Many (A member can have multiple borrowing records, but each borrowing record is associated with only one member).
+
+•	**categories** to **books**: One-to-Many (One category can encompass many books).
+
+•	**staff** can manage borrowing records and update book statuses.
 
 
 ### R9 - Discuss the database relations to be implemented in your application
 
-The database will implement one-to-many relationships between categories and books, books and borrowing records, and members and borrowing records. Staff will manage borrowing records.
+The LibraLink Library Management System's database is designed with the following relations:
 
-The database will implement relations such as:
+1. Category to Book Relation
 
-    One-to-Many between Categories and Books.
-    One-to-Many between Books and Borrowing Records.
-    One-to-Many between Members and Borrowing Records.
+- A One-to-Many relationship exists between `Category` and `Book`. Each `Category` can have multiple `Books`, but each `Book` is associated with only one `Category`. This relationship is crucial for organizing books into different genres or sections within the library.
+
+2. Book to Borrowing Record Relation
+
+- A One-to-Many relationship is established between `Book` and `BorrowingRecord`. A `Book` can have multiple `BorrowingRecords` associated with it, representing the history of checkouts. However, each `BorrowingRecord` pertains to only one `Book`, ensuring accurate tracking of each book's borrowing status.
+
+3. Member to Borrowing Record Relation
+
+- A One-to-Many relationship is also present between `Member` and `BorrowingRecord`. A `Member` can have multiple `BorrowingRecords`, indicating that a library member can borrow several books over time. Each `BorrowingRecord` is linked to a single `Member`, which allows the system to maintain a history of member activity and any fines incurred.
+
+The ERD clearly illustrates these relationships, ensuring that the database design is optimized for the library's operational needs. The relations are set up to facilitate efficient data retrieval for common library transactions, such as checking out books, returning them, and managing member accounts. The database structure allows for advanced queries, such as identifying all books within a certain category or compiling borrowing histories for individual members, demonstrating an exceptional understanding of the database queries necessary for a fully functional library management system.
 
 
 ### R10 - Describe the way tasks are allocated and tracked in your project
@@ -313,3 +400,8 @@ Day 3-4 - 27-28/03/2024
 Day 5 - 29/03/2024
 
 - The plan for the final day is to achieve as much as possible while maintaining a high level of comprehensive understanding.
+- Finished Readme document
+- Draft idea for API endpoints was added/updated
+- Coding done for main.py, init.py and some for book.py and  book_controller.py
+
+![T5A](./docs/T5A.png)
