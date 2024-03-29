@@ -217,7 +217,32 @@ The ERD will illustrate the relationships between books, members, borrowing reco
 
 ### R7 - Detail any third party services that your app will use
 
-LibraLink will use Insomnia API Client for testing endpoints, Trello for task management, and potentially email services for notifications; etc.
+1. **Development Environment & Tools:**
+
+- **Python:** The programming language for writing your application.
+- **Flask:** A micro web framework for building web applications.
+- **Visual Studio Code (VS Code):** A code editor for writing and debugging code.
+- **Insomnia API Client app:** A tool for testing API endpoints.
+- **PostgreSQL:** A relational database system for storing and managing data.
+- **GitHub Copilot:** An AI pair programmer to assist in writing code.
+
+2. **Project Management:**
+
+- **Trello:** A web-based tool for organizing tasks and collaboration.
+
+3. **Python Libraries & Extensions:**
+
+- **SQLAlchemy:** An ORM library for database interactions.
+- **Marshmallow:** A library for object serialization/deserialization.
+- **psycopg2:** A PostgreSQL adapter for Python.
+- **Flask-SQLAlchemy:** Adds SQLAlchemy support to Flask.
+- **flask-marshmallow:** Integrates Marshmallow with Flask.
+- **Flask-Bcrypt:** Provides bcrypt hashing utilities for Flask.
+- **Flask-JWT-Extended:** Adds JWT support for authentication in Flask.
+- **python-dotenv:** Loads environment variables from a .env file.
+- **bcrypt:** A library for hashing passwords securely.
+- **PyJWT:** A library to encode and decode JWTs for secure authentication.
+
 
 ### R8 - Describe your projects models in terms of the relationships they have with each other
 
@@ -244,30 +269,42 @@ The database will implement relations such as:
 
 ### R10 - Describe the way tasks are allocated and tracked in your project
 
-I use Trello as my Project Management Tool/Software to manage my Software Development Plan.
+I use Trello as my project management tool/software to manage my software development plan.
 
-First I created a simple Software Development Plan (SDP), this was only for the purpose of giving a high level view of the project as a whole. The estimated time was set at the beginning to be 11 hours, which is highly unlikely but provide a rough idea of how I expect myself to do this type of project in the future once becoming experienced. It also show a bigger picture and the idea of how should I spend most of my time in the project (Setup 10-15%, Documentation 10-15%, SDP 10%, Coding 30-35%, Endpoint Doc 10%, Error handling/Testing 10-15%, Review and Deployment Prep 5-10%)
+First, I created a simple Software Development Plan (SDP). This was only for the purpose of giving a high-level view of the project as a whole. The estimated time was set at the beginning to be 11 hours, which is highly unlikely but provides a rough idea of how I expect myself to handle this type of project in the future once I become experienced. It also shows a bigger picture and the idea of how I should spend most of my time on the project:
+
+- Setup: 10-15%
+- Documentation: 10-15%
+- SDP: 10%
+- Coding: 30-35%
+- Endpoint Doc: 10%
+- Error Handling/Testing: 10-15%
+- Review and Deployment Prep: 5-10%
 
 Day 1 - 25/03/2024
 
-- Got Idea approved, ERD done
+- Got the idea approved
+- Completed ERD
+
 
 ![T1](./docs/T1set.png)
 
 Day 2 - 26/03/2024
 
-- Created folder structure
-- Created Readme.md framework and documented the layout, draft and plan
-- Updated Trello and review process/procedure 
+- Created folder structure.
+- Created Readme.md framework and documented the layout, draft, and plan.
+- Updated Trello and reviewed the process/procedure.
+
 
 ![T1](./docs/T1setB.png)
 
 Day 3-4 - 27-28/03/2024
 
-- Continued to work on the README.MD, Software Development plan with more detailed step-by-step guide
-- Worked on Project Initialization/Setup, Installation Guide, and dependencies/Tech/app used: Flask, SQLAlchemy, Marshmallow, psycopg2, and other necessary libraries
-- Update Readme
-- Unfortunately due to workload for my daily job and the busy period of "End of Quarter - Interest Payment date", I was not able to dedicate sufficient time for this project.
+- Continued working on the README.MD and Software Development plan, providing a more detailed step-by-step guide.
+- Worked on Project Initialization/Setup, Installation Guide, and dependencies/Tech/app used: Flask, SQLAlchemy, Marshmallow, psycopg2, and other necessary libraries.
+- Updated Readme.
+- Unfortunately, due to the workload of my daily job and the busy period of "End of Quarter - Interest Payment date," I was not able to dedicate sufficient time to this project.
+
 
 ![T3-4](./docs/T3-4.png)
 ![T3planA](./docs/T3planA.png)
@@ -275,4 +312,4 @@ Day 3-4 - 27-28/03/2024
 
 Day 5 - 29/03/2024
 
-- Plan for final day is to achieve as much as possible while maintaining a high comprehensive understanding.
+- The plan for the final day is to achieve as much as possible while maintaining a high level of comprehensive understanding.
