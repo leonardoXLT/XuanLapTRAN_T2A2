@@ -17,6 +17,8 @@ from controllers.auth_controller import auth_bp
 from controllers.book_controller import book_bp
 from controllers.borrowing_record_controller import borrowing_record_bp
 from controllers.category_controller import category_bp
+from controllers.member_controller import member_bp
+from controllers.staff_controller import staff_bp
 
 # Create the Flask application
 app = Flask(__name__)
@@ -50,6 +52,8 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(book_bp)
 app.register_blueprint(borrowing_record_bp)
 app.register_blueprint(category_bp)
+app.register_blueprint(member_bp)
+app.register_blueprint(staff_bp)
 
 # Define a route for the index
 @app.route('/')
@@ -63,4 +67,3 @@ if __name__ == '__main__':
         db.create_all()
     # Run the Flask application
     app.run(debug=True)
-
